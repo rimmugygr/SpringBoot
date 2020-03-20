@@ -1,10 +1,8 @@
 package car.servis.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Locale;
 
@@ -24,9 +22,11 @@ public class IssueController {
         return "Mapowanie /home + /aaa and send MyHeader = xxx by method GET";
     }
 
-    @GetMapping("/")
-    @ResponseBody
-    public String home(Locale locale){
-        return "Mapowanie /home + / "+locale.toString();
+
+    @GetMapping("/{idVariable}")
+    public String home(@PathVariable(name = "idVariable") String idVariable , Model model){
+        model.addAttribute("idVariable", idVariable);
+        return "home";
     }
+
 }
