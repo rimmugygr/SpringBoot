@@ -1,10 +1,8 @@
 package car.servis.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -26,4 +24,10 @@ public class CommentsController {
     public String getVariable(@PathVariable(value = "name") String name , @PathVariable(value = "idComment") int id){
         return "Mapowanie with redex  /comment + /{value}/{value} | Value of variable is " + name + " " + id;
     }
+
+    @PostMapping("add")
+    public String addComments(@RequestBody MultiValueMap<String,String> body){
+        return body.toString();
+    }
+
 }
