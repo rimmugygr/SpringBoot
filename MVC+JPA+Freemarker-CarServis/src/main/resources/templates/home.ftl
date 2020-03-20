@@ -6,7 +6,6 @@
 </head>
 <body>
 
-aaaaaaaaaaa
-${idVariable}
+Input text: ${idVariable}
 </body>
 </html>
