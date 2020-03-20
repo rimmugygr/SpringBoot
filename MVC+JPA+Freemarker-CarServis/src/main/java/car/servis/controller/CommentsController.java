@@ -30,4 +30,10 @@ public class CommentsController {
         return body.toString();
     }
 
+    @RequestMapping(path = "/aaa" , method = RequestMethod.GET , headers = "MyHeader=xxx")
+    @ResponseBody
+    public String getHeader(){
+        return "Mapowanie /home + /aaa and send MyHeader = xxx by method GET";
+    }
+
 }

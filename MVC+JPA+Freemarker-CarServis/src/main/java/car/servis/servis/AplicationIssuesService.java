@@ -1,0 +1,29 @@
+package car.servis.servis;
+
+import car.servis.dto.Issue;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+public class AplicationIssuesService implements IssuesService {
+
+    private List<Issue> issues;
+
+    public AplicationIssuesService() {
+        this.issues = new ArrayList<>();
+        issues.add(new Issue(1,"first issue", "small issue" , new Date()));
+        issues.add(new Issue(2,"second issue", "big issue" , new Date()));
+    }
+
+    @Override
+    public String getIssue() {
+        return  "Some Issue";
+    }
+
+    @Override
+    public List<Issue> listIssues() {
+        return Collections.unmodifiableList(issues);
+    }
+}

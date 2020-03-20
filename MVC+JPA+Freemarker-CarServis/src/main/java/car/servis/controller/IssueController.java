@@ -1,25 +1,28 @@
 package car.servis.controller;
 
+import car.servis.servis.IssuesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Locale;
 
 @Controller
 @RequestMapping("/home")
 public class IssueController {
 
-    @GetMapping("/**")
-    @ResponseBody
-    public String test(){
-        return "Mapowanie /home + /**";
+
+    private IssuesService issuesService;
+    //injection
+    @Autowired
+    public IssueController(IssuesService issuesService) {
+        this.issuesService = issuesService;
     }
 
-    @RequestMapping(path = "/aaa" , method = RequestMethod.GET , headers = "MyHeader=xxx")
-    @ResponseBody
-    public String getHeader(){
-        return "Mapowanie /home + /aaa and send MyHeader = xxx by method GET";
+
+    @GetMapping("/")
+    public String setIssue(Model model){
+        model.addAttribute("issues", issuesService.listIssues());
+        return "issueList";
     }
 
 
@@ -28,5 +31,7 @@ public class IssueController {
         model.addAttribute("idVariable", idVariable);
         return "home";
     }
+
+
 
 }
