@@ -9,4 +9,5 @@ import java.util.List;
 public interface IssuesService {
     String getIssue();
     List<Issue>  listIssues();
+    void addIssue(IssueForm issueForm);
 }

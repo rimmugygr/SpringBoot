@@ -29,4 +29,9 @@ public class AplicationIssuesService implements IssuesService {
     public List<Issue> listIssues() {
         return Collections.unmodifiableList(issues);
     }
+
+    @Override
+    public void addIssue(IssueForm issueForm) {
+        issues.add(new Issue(issues.size()+1, issueForm.getTitle(),issueForm.getContent(),new Date()));
+    }
 }
