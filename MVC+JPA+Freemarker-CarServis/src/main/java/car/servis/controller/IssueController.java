@@ -1,5 +1,6 @@
 package car.servis.controller;
 
+import car.servis.dto.RecordRange;
 import car.servis.servis.IssuesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +21,10 @@ public class IssueController {
 
 
     @GetMapping("/")
-    public String setIssue(Model model){
-        model.addAttribute("issues", issuesService.listIssues());
+    public String setIssue(@RequestParam(name = "Range") RecordRange range, Model model){
+        model.addAttribute("issues", issuesService.listIssues().subList(range.getFrom(),range.getTo()));
+        model.addAttribute("from", range.getFrom());
+        model.addAttribute("to", range.getTo());
         return "issueList";
     }
 

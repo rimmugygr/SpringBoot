@@ -15,6 +15,9 @@ public class AplicationIssuesService implements IssuesService {
         this.issues = new ArrayList<>();
         issues.add(new Issue(1,"first issue", "small issue" , new Date()));
         issues.add(new Issue(2,"second issue", "big issue" , new Date()));
+        issues.add(new Issue(3,"third issue", "small and big issue" , new Date()));
+        issues.add(new Issue(4,"four issue", "another issue" , new Date()));
+
     }
 
     @Override

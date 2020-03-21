@@ -5,6 +5,7 @@
     <title>Insert title here</title>
 </head>
 <body>
+List from ${from} to ${to}<br>
 -=No=Format=-
 <table>
     <#list issues as issue>
