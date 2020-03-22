@@ -10,8 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Controller
 @RequestMapping("/file")
@@ -41,4 +39,16 @@ public class FileController {
     public String uploadFile(@RequestParam(name = "name") String name, @RequestParam(name = "file") MultipartFile file) {
         return "upload file length=" + file.getSize();
     }
+
+    @GetMapping("/error")
+    public String getError() throws IOException {
+        throw new  IOException();
+    }
+
+    @ExceptionHandler(IOException.class)
+    @ResponseBody
+    public String handleError(){
+        return "Input Output Error in Server";
+    }
+
 }
