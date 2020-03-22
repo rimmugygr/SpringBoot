@@ -48,7 +48,8 @@ public class FileController {
     @ExceptionHandler(IOException.class)
     @ResponseBody
     public String handleError(){
-        return "Input Output Error in Server";
+        logger.info("Input Output Error in Server");
+        return "Error in Server";
     }
 
 }
