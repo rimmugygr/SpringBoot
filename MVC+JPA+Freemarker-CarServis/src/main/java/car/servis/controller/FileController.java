@@ -5,12 +5,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 @RequestMapping("/file")
@@ -28,5 +29,16 @@ public class FileController {
         response.setHeader("Content-Disposition", "attachment; fileName=abc.jpg");
         FileCopyUtils.copy(inputStream,response.getOutputStream());
         logger.info("file stream");
+    }
+
+    @GetMapping("/upload")
+    public String showUploadForm(){
+        return "upload";
+    }
+
+    @PostMapping("/upload")
+    @ResponseBody
+    public String uploadFile(@RequestParam(name = "name") String name, @RequestParam(name = "file") MultipartFile file) {
+        return "upload file length=" + file.getSize();
     }
 }
