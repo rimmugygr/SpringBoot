@@ -1,4 +1,4 @@
-package boot.server;
+package authentication.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

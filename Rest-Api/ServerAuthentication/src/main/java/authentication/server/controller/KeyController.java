@@ -1,6 +1,7 @@
-package boot.server;
+package authentication.server.controller;
 
 
+import authentication.server.model.CheckKeyResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

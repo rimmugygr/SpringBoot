@@ -1,4 +1,4 @@
-package boot.server;
+package authentication.server.model;
 
 public class CheckKeyResult {
     private boolean isCorrect;
