@@ -3,6 +3,9 @@ package client.application.controller;
 import client.application.model.CheckKeyResult;
 import client.application.model.KeyModel;
 import client.application.model.SecretMessage;
+import org.springframework.http.client.ClientHttpRequest;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.support.BasicAuthenticationInterceptor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
@@ -12,7 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
+import java.awt.*;
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
@@ -56,14 +61,15 @@ public class SafeController {
     public boolean isKeyCorrect(KeyModel keyModel){
         String userKey = keyModel.getKey();
         RestTemplate restTemplate = new RestTemplate();
-        CheckKeyResult result = restTemplate.getForObject(
-                "http://localhost:8081/checkKey?key={key}", CheckKeyResult.class,
-                Collections.singletonMap("key",userKey));
+        CheckKeyResult result = restTemplate.getForObject("http://localhost:8081/checkKey?key={key}",
+                CheckKeyResult.class, Collections.singletonMap("key",userKey));
         return result.isCorrect();
     }
 
     public String fetchSecretMessage(){
         RestTemplate restTemplate = new RestTemplate();
+        List<ClientHttpRequestInterceptor> interceptors =  restTemplate.getInterceptors();
+        interceptors.add(new BasicAuthenticationInterceptor("admin","admin"));
         SecretMessage message = restTemplate.getForObject(
                 "http://localhost:8083/getMessage", SecretMessage.class);
         return message.getText();

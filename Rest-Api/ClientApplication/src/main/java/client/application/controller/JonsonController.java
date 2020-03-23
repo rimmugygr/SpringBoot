@@ -13,7 +13,7 @@ public class JonsonController {
     private static final String template ="hello %s";
     private final AtomicLong counter = new AtomicLong();
 
-    //model automatycznie na jonsona ze wzgledu na autoconfigguration by dependency
+    //model automatically go to json because  autoconfigure by dependency
     @GetMapping("/model")
     public JonsonModel greeting(@RequestParam(value = "name" , defaultValue = "World") String name){
         return new JonsonModel(counter.incrementAndGet(),String.format(template,name));
