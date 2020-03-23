@@ -3,6 +3,8 @@ package boot.application.controller;
 import boot.application.model.CheckKeyResult;
 import boot.application.model.KeyModel;
 import boot.application.model.SecretMessage;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Controller
 public class SafeController {
@@ -20,8 +24,15 @@ public class SafeController {
     private static final String MESSAGE_ATTR_NAME = "message";
 
     @GetMapping("/safe")
-    public String safeGet(Model model){
+    public String safeGet(Model model, Authentication authentication){
+        String userName = authentication.getName();
+        String roles = authentication.getAuthorities()
+                .stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.joining(","));
         model.addAttribute(KEY_FROM_MODEL_ATTR_NAME, new KeyModel());
+        model.addAttribute("user",userName);
+        model.addAttribute("roles",roles);
         return "safe";
     }
 

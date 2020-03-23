@@ -8,6 +8,7 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+<span style='float:right' > Login: ${user} Role: ${roles}</span>
 <div class="jumbotron" style='text-align:center'>
     <h1 class="display-4">Bank tajnych danych</h1>
     <label for="key">Podaj klucz</label>
