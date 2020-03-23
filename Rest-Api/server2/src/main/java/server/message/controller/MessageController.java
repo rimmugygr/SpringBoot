@@ -1,7 +1,8 @@
-package boot.server2;
+package server.message.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import server.message.model.SecretMessage;
 
 @RestController
 public class MessageController {

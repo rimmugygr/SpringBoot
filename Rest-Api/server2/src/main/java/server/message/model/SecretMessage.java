@@ -1,4 +1,4 @@
-package boot.server2;
+package server.message.model;
 
 public class SecretMessage {
     private String text;
