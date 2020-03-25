@@ -2,12 +2,21 @@ package car.servis;
 
 import car.servis.model.AppUser;
 import car.servis.repository.AppUserRepo;
+import car.servis.servis.AplicationIssuesService;
+import car.servis.servis.IssuesService;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * init config
+ */
 @Configuration
 public class Start {
-
+    @Bean
+    public IssuesService issueService() {
+        return new AplicationIssuesService();
+    }
 
     public Start(AppUserRepo appUserRepo , PasswordEncoder passwordEncoder) {
 

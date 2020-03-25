@@ -1,10 +1,13 @@
 package car.servis.model;
 
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -19,9 +22,19 @@ public class AppUser  implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    @Transient
+    private String confirmPassword;
     private String role;
     private String mail;
     private boolean isEnabled;
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     public String getMail() {
         return mail;
@@ -101,6 +114,8 @@ public class AppUser  implements UserDetails {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", mail='" + mail + '\'' +
+                ", isEnabled=" + isEnabled +
                 '}';
     }
 }

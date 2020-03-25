@@ -29,7 +29,6 @@ public class HomeController {
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         //add to model user roles
         model.addAttribute("authorities", authorities);
-        logger.info(authorities.toString() + "<<<<<<<<<<<");
 
         // full info about logged user to console
         String login;
