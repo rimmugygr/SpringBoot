@@ -44,14 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-        http.headers().disable();
-
-
+//        http.csrf().disable();
+//        http.headers().disable();
         http.authorizeRequests()
                 .antMatchers("/index").permitAll()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/register").permitAll()
+                .antMatchers("/test").permitAll()
                 .antMatchers("/user","/comment/**","/cookie/**", "/file/**","/param/**", "/issue/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()

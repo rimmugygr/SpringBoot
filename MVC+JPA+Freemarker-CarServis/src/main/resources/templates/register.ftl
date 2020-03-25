@@ -16,7 +16,7 @@
             <label for="idPassword">Password:</label>
             <input type="password" id="idPassword" name="password" required/>
             <button type="submit" >Register</button>
-<#--            <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>-->
+            <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>
         </form>
     </div>
 </body>

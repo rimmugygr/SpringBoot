@@ -6,6 +6,7 @@ import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Collection;
 
 @Controller
 public class HomeController {
@@ -22,10 +24,18 @@ public class HomeController {
 
     @GetMapping({"/","/home","/index"})
     public String home(Model model, HttpServletRequest request){
+        // add to model user name
         model.addAttribute("user", request.getRemoteUser());
 
+        // get user roles
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        //add to model user roles
+        model.addAttribute("authorities", authorities);
+        logger.info(authorities.toString() + "<<<<<<<<<<<");
+
+        // full info about logged user to console
         String login;
         if (principal instanceof UserDetails){
             login=((UserDetails) principal).getUsername();

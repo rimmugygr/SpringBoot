@@ -5,6 +5,8 @@ import car.servis.repository.AppUserRepo;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -24,5 +26,11 @@ public class UserService {
         appUser.setRole("ROLE_USER");
         // write to db new user
         appUserRepo.save(appUser);
+    }
+
+    // for test
+    public List<AppUser> getAllUser() {
+        List<AppUser> result = appUserRepo.findAll();
+        return result;
     }
 }
