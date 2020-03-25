@@ -1,5 +1,7 @@
 package car.servis.controller;
 
+import car.servis.dto.AppUser;
+import car.servis.servis.UserDetailsServiceImpl;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,11 +31,14 @@ public class HomeController {
             login=((UserDetails) principal).getUsername();
             logger.info("Logged user:"+login);
         }
+        if (principal instanceof AppUser){
+            logger.info(((AppUser) principal).toString());
+        }
 
         return "index";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/myLogin")
     public String login(){
         return "login";
     }

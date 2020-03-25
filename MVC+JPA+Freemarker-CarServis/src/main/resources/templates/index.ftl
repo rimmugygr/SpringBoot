@@ -9,7 +9,7 @@
     <p>Logged user: ${user!'none'} </p>
     <form method="post" action="/logout">
         <button type="submit" >Logout</button>
-        <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>
+<#--        <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>-->
     </form>
 </body>
 </html>

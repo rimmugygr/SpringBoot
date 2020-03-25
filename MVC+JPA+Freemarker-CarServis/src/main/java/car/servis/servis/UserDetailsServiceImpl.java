@@ -1,5 +1,6 @@
-package car.servis.dto;
+package car.servis.servis;
 
+import car.servis.repository.AppUserRepo;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
