@@ -11,13 +11,14 @@
             <div role="alert" >Wrong login name or password</div>
         </#if>
         <form method="post" action="/myLogin">
-            <label for="idUser">User name:</label>
-            <input type="text" id="idUser" name="name" required autofocus/>
-            <label for="idPassword">Password:</label>
-            <input type="password" id="idPassword" name="pass" required/>
+            <label for="name">User name:</label>
+            <input type="text" id="name" name="name" required autofocus/>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" required/>
             <button type="submit" >Login</button>
             <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>
         </form>
+
     </div>
 </body>
 </html>

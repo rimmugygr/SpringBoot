@@ -1,13 +1,10 @@
 package car.servis.controller;
 
-import car.servis.dto.AppUser;
-import car.servis.servis.UserDetailsServiceImpl;
-import org.slf4j.ILoggerFactory;
+import car.servis.model.AppUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -15,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 
 @Controller
@@ -52,4 +48,10 @@ public class HomeController {
     public String login(){
         return "login";
     }
+
+//    @GetMapping("/myLogin-error")
+//    public String loginError(Model model) {
+//        model.addAttribute("loginError", true);
+//        return "login";
+//    }
 }

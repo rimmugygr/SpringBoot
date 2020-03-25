@@ -1,6 +1,6 @@
 package car.servis.controller;
 
-import car.servis.dto.RecordRange;
+import car.servis.model.RecordRange;
 import car.servis.servis.IssueForm;
 import car.servis.servis.IssuesService;
 import org.springframework.beans.factory.annotation.Autowired;

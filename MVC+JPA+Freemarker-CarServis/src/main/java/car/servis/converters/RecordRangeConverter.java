@@ -1,6 +1,6 @@
 package car.servis.converters;
 
-import car.servis.dto.RecordRange;
+import car.servis.model.RecordRange;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

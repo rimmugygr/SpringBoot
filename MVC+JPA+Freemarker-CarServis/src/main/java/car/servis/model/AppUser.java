@@ -1,18 +1,15 @@
-package car.servis.dto;
+package car.servis.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 
 /**
- * Record login profile class
+ * Table login profile
  */
 @Entity
 public class AppUser  implements UserDetails {
@@ -23,6 +20,20 @@ public class AppUser  implements UserDetails {
     private String username;
     private String password;
     private String role;
+    private String mail;
+    private boolean isEnabled;
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
 
     public Long getId() {
         return id;
@@ -80,7 +91,7 @@ public class AppUser  implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
 
     @Override

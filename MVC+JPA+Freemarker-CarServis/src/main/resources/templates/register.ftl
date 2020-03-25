@@ -15,6 +15,8 @@
             <input type="text" id="idUser" name="username" required autofocus/>
             <label for="idPassword">Password:</label>
             <input type="password" id="idPassword" name="password" required/>
+            <label for="idMail">Password:</label>
+            <input type="text" id="idMail" name="mail" required/>
             <button type="submit" >Register</button>
             <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>
         </form>

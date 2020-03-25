@@ -1,4 +1,4 @@
-package car.servis.dto;
+package car.servis.model;
 
 public class RecordRange {
     private Integer from;

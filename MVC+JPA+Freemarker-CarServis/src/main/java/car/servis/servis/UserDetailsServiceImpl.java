@@ -1,6 +1,9 @@
 package car.servis.servis;
 
+import car.servis.model.AppUser;
 import car.servis.repository.AppUserRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+    private Logger logger = LoggerFactory.getLogger("Logged");
 
     private AppUserRepo appUserRepo;
 
@@ -22,7 +26,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         // todo on optional trow in case if not exist that username in db
-        return appUserRepo.findByUsername(s);
+        AppUser appUser = appUserRepo.findByUsername(s);
+        logger.info(appUser.getUsername());
+        return new org.springframework.security.core.userdetails.User(appUser.getUsername(),appUser.getPassword(),appUser.getAuthorities());
     }
 
 }

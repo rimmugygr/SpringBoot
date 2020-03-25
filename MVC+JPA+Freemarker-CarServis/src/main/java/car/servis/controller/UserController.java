@@ -1,6 +1,6 @@
 package car.servis.controller;
 
-import car.servis.dto.User;
+import car.servis.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

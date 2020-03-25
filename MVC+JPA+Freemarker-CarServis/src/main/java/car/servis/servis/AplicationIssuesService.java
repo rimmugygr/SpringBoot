@@ -1,6 +1,6 @@
 package car.servis.servis;
 
-import car.servis.dto.Issue;
+import car.servis.model.Issue;
 
 import java.util.ArrayList;
 import java.util.Collections;

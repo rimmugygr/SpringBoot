@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private UserDetailsServiceImpl userDetailsService;
 
+    //inject bean
     public SecurityConfig(UserDetailsServiceImpl userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
@@ -54,11 +55,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user","/comment/**","/cookie/**", "/file/**","/param/**", "/issue/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/index");
-//                .loginPage("/myLogin").permitAll()
-//                .loginProcessingUrl("/myLogin")
-//                .passwordParameter("name")
-//                .usernameParameter("pass");
+                .formLogin().defaultSuccessUrl("/index")
+                .loginPage("/myLogin").permitAll()
+//                .failureUrl("/myLogin-error").permitAll()
+                .loginProcessingUrl("/myLogin").permitAll()
+                .passwordParameter("pass")
+                .usernameParameter("name");
 //                .and()
 //                .httpBasic();
 

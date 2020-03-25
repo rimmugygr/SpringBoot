@@ -1,6 +1,6 @@
 package car.servis.servis;
 
-import car.servis.dto.Issue;
+import car.servis.model.Issue;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package car.servis.dto;
+package car.servis.model;
 
 import java.util.Date;
 
