@@ -15,6 +15,7 @@
             <input type="text" id="name" name="name" required autofocus/>
             <label for="pass">Password:</label>
             <input type="password" id="pass" name="pass" required/>
+            <label> <input type="checkbox" name="remember-me"/>Remember me</label>
             <button type="submit" >Login</button>
             <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>
         </form>

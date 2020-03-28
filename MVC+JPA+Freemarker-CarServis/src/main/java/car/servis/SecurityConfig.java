@@ -7,8 +7,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.session.SessionInformation;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.List;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -60,9 +65,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .failureUrl("/myLogin-error").permitAll()
                 .loginProcessingUrl("/myLogin").permitAll()
                 .passwordParameter("pass")
-                .usernameParameter("name");
-//                .and()
-//                .httpBasic();
-
+                .usernameParameter("name")
+                .and()
+                .logout().permitAll().invalidateHttpSession(true).deleteCookies("JSESSIONID")
+                .and()
+                //max 1 user name logged
+               // .sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true);
+               // .sessionRegistry(sessionRegistry());
+		        .rememberMe().key("secret-key").rememberMeParameter("remember-me").tokenValiditySeconds(3600)
+                .and()
+                .sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(false).expiredUrl("/mylogin")
+                .sessionRegistry(sessionRegistry());
     }
+
+    @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
+    }
+
+
+
 }
