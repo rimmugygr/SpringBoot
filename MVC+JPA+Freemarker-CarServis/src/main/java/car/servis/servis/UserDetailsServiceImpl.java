@@ -4,6 +4,7 @@ import car.servis.model.AppUser;
 import car.servis.repository.AppUserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -28,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         // todo on optional trow in case if not exist that username in db
         AppUser appUser = appUserRepo.findByUsername(s);
         logger.info(appUser.getUsername());
-        return new org.springframework.security.core.userdetails.User(appUser.getUsername(),appUser.getPassword(),appUser.getAuthorities());
+        return new User(appUser.getUsername(),appUser.getPassword(),appUser.getAuthorities());
     }
 
 }
