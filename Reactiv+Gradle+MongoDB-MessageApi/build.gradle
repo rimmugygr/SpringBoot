@@ -1,0 +1,21 @@
+plugins {
+	id 'java'
+}
+
+group = 'gradle'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-webflux:2.0.0.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb:2.0.0.RELEASE'
+
+}
+
+test {
+	useJUnitPlatform()
+}
