@@ -1,4 +1,4 @@
-package gradle.reactiv;
+package gradle.reactiv.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

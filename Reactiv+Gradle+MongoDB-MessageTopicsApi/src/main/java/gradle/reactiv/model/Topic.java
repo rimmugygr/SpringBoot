@@ -1,15 +1,11 @@
-package gradle.reactiv;
+package gradle.reactiv.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Topic {
     private String name;
-    private List<Message> messages;
-
-    {
-        messages = new ArrayList<>();
-    }
+    private List<Message> messages = new ArrayList<>();
 
     public Topic(String name, List<Message> messages) {
         this.name = name;
@@ -22,7 +18,9 @@ public class Topic {
     }
 
     public void addMessage(Message message) {
-        this.messages.add(message);
+        List<Message> newList = new ArrayList<>(this.messages);
+        newList.add(message);
+        this.messages = newList;
     }
 
     public String getName() {

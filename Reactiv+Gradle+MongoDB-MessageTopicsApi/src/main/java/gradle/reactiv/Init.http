@@ -12,6 +12,6 @@ POST http://localhost:8080/api/message/NewTopic
 Content-Type: application/json
 
 {
-"author":"xxx",
+"author":"xxxasdasd",
 "content":"x x xx x x"
 }

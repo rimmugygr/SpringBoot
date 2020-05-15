@@ -1,5 +1,10 @@
-package gradle.reactiv;
+package gradle.reactiv.service;
 
+import gradle.reactiv.SpringInit;
+import gradle.reactiv.model.BoardMessage;
+import gradle.reactiv.model.Message;
+import gradle.reactiv.model.Topic;
+import gradle.reactiv.repository.BoardMessageRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -7,23 +12,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class MessageBoardService {
-    private Map<String, Topic> topics;
-
+    private Map<String, Topic> topics = new HashMap<>();
     private final BoardMessageRepository messageRepository;
 
 
-    {
-        this.topics = new HashMap<>();
-    }
-
     public MessageBoardService() {
-        // initial list of topic
-        this.topics = List.of("FirstTopic","SecondTopic").stream()
-                .map(Topic::new)
-                .collect(Collectors.toMap(Topic::getName,topic -> topic));
+//        // initial list of topic
+//        this.topics = List.of("FirstTopic","SecondTopic").stream()
+//                .map(Topic::new)
+//                .collect(Collectors.toMap(Topic::getName,topic -> topic));
         // init spring context
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringInit.class);
         // get bean repository mongo

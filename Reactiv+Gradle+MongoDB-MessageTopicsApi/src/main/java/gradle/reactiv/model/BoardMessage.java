@@ -1,4 +1,4 @@
-package gradle.reactiv;
+package gradle.reactiv.model;
 
 public class BoardMessage {
     private String topic;

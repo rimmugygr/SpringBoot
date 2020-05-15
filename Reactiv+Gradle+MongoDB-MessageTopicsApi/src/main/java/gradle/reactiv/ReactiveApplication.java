@@ -1,6 +1,8 @@
 package gradle.reactiv;
 
 
+import gradle.reactiv.model.Message;
+import gradle.reactiv.service.MessageBoardService;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.HttpHandler;
 import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter;

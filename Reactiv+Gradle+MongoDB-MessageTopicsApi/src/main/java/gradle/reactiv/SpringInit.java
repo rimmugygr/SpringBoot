@@ -1,5 +1,6 @@
 package gradle.reactiv;
 
+import gradle.reactiv.repository.BoardMessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
