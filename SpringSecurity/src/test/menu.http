@@ -1,0 +1,16 @@
+GET http://localhost:8080/api/menu
+Accept: application/json
+
+###
+GET http://localhost:8080/api/menu
+Authorization: Basic user user
+Content-Type: application/json
+Accept: application/json
+
+###
+GET http://localhost:8080/api/menu
+Authorization: Basic admin admin
+Content-Type: application/json
+Accept: application/json
+
+###
