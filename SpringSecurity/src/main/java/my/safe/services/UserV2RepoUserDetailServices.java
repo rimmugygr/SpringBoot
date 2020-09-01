@@ -1,6 +1,5 @@
 package my.safe.services;
 
-import my.safe.model.User;
 import my.safe.model.UserV2;
 import my.safe.repository.UserV2Repo;
 import org.springframework.security.core.GrantedAuthority;

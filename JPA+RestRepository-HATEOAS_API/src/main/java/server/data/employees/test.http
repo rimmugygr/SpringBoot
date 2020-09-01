@@ -1,0 +1,19 @@
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "firstName": "aaa",
+  "lastName": "bbb",
+  "mail": "aaa@bbb.pl",
+  "department": "http://localhost:8080/departments/1"
+}
+
+###
+GET http://localhost:8080/employees
+Accept: application/json
+
+###
+GET http://localhost:8080/employees/1
+Accept: application/json
+
+###

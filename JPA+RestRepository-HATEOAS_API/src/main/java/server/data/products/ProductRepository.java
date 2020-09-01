@@ -1,4 +1,4 @@
-package server.data.Products;
+package server.data.products;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

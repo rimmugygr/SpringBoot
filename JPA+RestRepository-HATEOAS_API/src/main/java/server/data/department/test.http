@@ -1,0 +1,25 @@
+POST http://localhost:8080/departments
+Content-Type: application/json
+
+{
+  "name": "first-department"
+}
+###
+POST http://localhost:8080/departments
+Content-Type: application/json
+
+{
+"name": "second-department"
+}
+###
+PUT http://localhost:8080/departments/3
+Content-Type: application/json
+
+{
+  "name": "last-department"
+}
+###
+GET http://localhost:8080/departments
+Accept: application/json
+
+###
