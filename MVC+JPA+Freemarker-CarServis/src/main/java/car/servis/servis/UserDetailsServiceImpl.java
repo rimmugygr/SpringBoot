@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         // todo on optional trow in case if not exist that username in db
         AppUser appUser = appUserRepo.findByUsername(s);
         logger.info(appUser.getUsername());
-        return new User(appUser.getUsername(),appUser.getPassword(),appUser.getAuthorities());
+        return new User(appUser.getUsername(), appUser.getPassword(), appUser.getAuthorities());
     }
 
 }

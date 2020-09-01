@@ -14,7 +14,7 @@ public class MessageController {
     private static final String SECRET_MESSAGE = "Tajan wiadomość na głownym serverze wrrrr";
 
     @GetMapping("/getMessage")
-    public SecretMessage getMessage(){
+    public SecretMessage getMessage() {
         return new SecretMessage(SECRET_MESSAGE);
     }
 }

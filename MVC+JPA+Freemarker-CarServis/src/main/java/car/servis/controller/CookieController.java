@@ -14,8 +14,8 @@ public class CookieController {
     @GetMapping("/cookie/")
     public String getCookie(@RequestParam(name = "newCooki", required = false) String newCookie,
                             @CookieValue(name = "myCookie", required = false, defaultValue = "small") String cookie,
-                            HttpServletResponse response){
-        if(newCookie!=null){
+                            HttpServletResponse response) {
+        if (newCookie != null) {
             response.addCookie(new Cookie("myCookie", newCookie));
             return "Set cooki to: " + newCookie;
         } else {

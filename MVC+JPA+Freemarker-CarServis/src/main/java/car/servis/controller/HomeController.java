@@ -16,10 +16,10 @@ import java.util.Collection;
 
 @Controller
 public class HomeController {
-    private Logger  logger= LoggerFactory.getLogger(HomeController.class);
+    private Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @GetMapping({"/","/home","/index"})
-    public String home(Model model, HttpServletRequest request){
+    @GetMapping({"/", "/home", "/index"})
+    public String home(Model model, HttpServletRequest request) {
         // add to model user name
         model.addAttribute("user", request.getRemoteUser());
 
@@ -32,11 +32,11 @@ public class HomeController {
 
         // full info about logged user to console
         String login;
-        if (principal instanceof UserDetails){
-            login=((UserDetails) principal).getUsername();
-            logger.info("Logged user:"+login);
+        if (principal instanceof UserDetails) {
+            login = ((UserDetails) principal).getUsername();
+            logger.info("Logged user:" + login);
         }
-        if (principal instanceof AppUser){
+        if (principal instanceof AppUser) {
             logger.info(((AppUser) principal).toString());
         }
 
@@ -44,7 +44,7 @@ public class HomeController {
     }
 
     @GetMapping("/myLogin")
-    public String login(){
+    public String login() {
         return "login";
     }
 

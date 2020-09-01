@@ -13,7 +13,7 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("/api/users")
-    public Iterable<User> getUser(){
+    public Iterable<User> getUser() {
 
         User user0 = new User();
         user0.setEmail("aaa@bbb.pl");

@@ -52,9 +52,9 @@ public class UserService {
         token.setAppUser(appUser);
         tokenRepo.save(token);
 
-        String url = "http://localhost:/token?value="+tokenValue;
+        String url = "http://localhost:/token?value=" + tokenValue;
         try {
-            mailService.sendMail(appUser.getMail(),"Verification link", url,false);
+            mailService.sendMail(appUser.getMail(), "Verification link", url, false);
         } catch (MessagingException e) {
             e.printStackTrace();
         }

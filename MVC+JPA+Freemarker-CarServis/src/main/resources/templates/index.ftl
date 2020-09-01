@@ -6,17 +6,17 @@
 </head>
 <body>
 
-    <p>Logged user: ${user!'none'} </p>
+<p>Logged user: ${user!'none'} </p>
 
-    <#list authorities as auth>
-        <tr>
-            <td> ${auth} </td>
-        </tr>
-    </#list>
+<#list authorities as auth>
+    <tr>
+        <td> ${auth} </td>
+    </tr>
+</#list>
 
-    <form method="post" action="/logout">
-        <button type="submit" >Logout</button>
-        <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>
-    </form>
+<form method="post" action="/logout">
+    <button type="submit">Logout</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
 </body>
 </html>

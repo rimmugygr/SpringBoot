@@ -10,22 +10,22 @@
 
 <@spring.bind "issueForm"/>
 
-    <form action="/issue/add" method="post">
-        Title:<br>
-        <@spring.formInput "issueForm.title"/>
-        <@spring.showErrors "<br>"/>
-        <br><br>
-        Content:<br>
-        <@spring.formInput "issueForm.content"/>
-        <@spring.showErrors "<br>"/>
-        <br><br>
+<form action="/issue/add" method="post">
+    Title:<br>
+    <@spring.formInput "issueForm.title"/>
+    <@spring.showErrors "<br>"/>
+    <br><br>
+    Content:<br>
+    <@spring.formInput "issueForm.content"/>
+    <@spring.showErrors "<br>"/>
+    <br><br>
 
-        <input type="submit" value="Submit">
-    </form>
+    <input type="submit" value="Submit">
+</form>
 <#if issueForm?? && noErrors??>
-Your submitted data<br>
-Title: ${issueForm.title}<br>
-Content: ${issueForm.content}<br>
+    Your submitted data<br>
+    Title: ${issueForm.title}<br>
+    Content: ${issueForm.content}<br>
 </#if>
 
 </body>

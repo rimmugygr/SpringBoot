@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //password encoder
     @Bean
-    public PasswordEncoder getPasswordEncoder(){
+    public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/registration**").permitAll()
                 .antMatchers("/test").permitAll()
-                .antMatchers("/user","/comment/**","/cookie/**", "/file/**","/param/**", "/issue/**").hasRole("ADMIN")
+                .antMatchers("/user", "/comment/**", "/cookie/**", "/file/**", "/param/**", "/issue/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().defaultSuccessUrl("/index")
@@ -70,9 +70,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().permitAll().invalidateHttpSession(true).deleteCookies("JSESSIONID")
                 .and()
                 //max 1 user name logged
-               // .sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true);
-               // .sessionRegistry(sessionRegistry());
-		        .rememberMe().key("secret-key").rememberMeParameter("remember-me").tokenValiditySeconds(3600)
+                // .sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true);
+                // .sessionRegistry(sessionRegistry());
+                .rememberMe().key("secret-key").rememberMeParameter("remember-me").tokenValiditySeconds(3600)
                 .and()
                 .sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(false).expiredUrl("/mylogin")
                 .sessionRegistry(sessionRegistry());
@@ -82,7 +82,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public SessionRegistry sessionRegistry() {
         return new SessionRegistryImpl();
     }
-
 
 
 }

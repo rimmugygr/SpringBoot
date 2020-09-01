@@ -18,7 +18,7 @@ public class Start {
         return new AplicationIssuesService();
     }
 
-    public Start(AppUserRepo appUserRepo , PasswordEncoder passwordEncoder) {
+    public Start(AppUserRepo appUserRepo, PasswordEncoder passwordEncoder) {
 
         AppUser andrzej = new AppUser();
         andrzej.setUsername("andrzej");

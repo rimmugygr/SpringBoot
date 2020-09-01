@@ -11,6 +11,7 @@ Accept: application/json
         "tile": "y",
         "content": "yyy"
 }
+
 ###
 DELETE http://localhost:8080/api/info
 Authorization: Basic admin admin
@@ -21,4 +22,5 @@ Accept: application/json
   "tile": "y",
   "content": "yyy"
 }
+
 ###

@@ -22,9 +22,9 @@ public class InitConfig {
         userRepo.save(admin);
 
         // for UserRepositoryUserDetailsService
-        UserV2 userV2 = new UserV2(UUID.randomUUID(),"user",passwordEncoder.encode("user"));
+        UserV2 userV2 = new UserV2(UUID.randomUUID(), "user", passwordEncoder.encode("user"));
         userV2.grantAuthority("ROLE_USER");
-        UserV2 adminV2 = new UserV2(UUID.randomUUID(),"admin",passwordEncoder.encode("admin"));
+        UserV2 adminV2 = new UserV2(UUID.randomUUID(), "admin", passwordEncoder.encode("admin"));
         adminV2.grantAuthority("ROLE_ADMIN");
         userV2Repo.save(userV2);
         userV2Repo.save(adminV2);

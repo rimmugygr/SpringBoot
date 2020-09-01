@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.PARAMETER)
-@CurrentSecurityContext(expression="authentication.authorities")
+@CurrentSecurityContext(expression = "authentication.authorities")
 public @interface CurrentAuthorities {
 }

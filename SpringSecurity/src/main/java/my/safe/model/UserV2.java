@@ -76,6 +76,6 @@ public class UserV2 {
     }
 
     public void grantAuthority(String authority) {
-        this.userAuthorities.add(new UserV2Authority(authority,this));
+        this.userAuthorities.add(new UserV2Authority(authority, this));
     }
 }

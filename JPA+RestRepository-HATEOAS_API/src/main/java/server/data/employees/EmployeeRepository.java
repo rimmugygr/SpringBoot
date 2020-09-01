@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import server.data.products.Product;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RepositoryRestResource (collectionResourceRel = "employee" , path = "employees",excerptProjection = EmployeeResponse.class)
+@RepositoryRestResource(collectionResourceRel = "employee", path = "employees", excerptProjection = EmployeeResponse.class)
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
 }

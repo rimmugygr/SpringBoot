@@ -12,8 +12,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 
 @WebMvcTest(CommentsController.class)
-
-
 class ControllerTest {
 
     @Autowired
@@ -27,7 +25,6 @@ class ControllerTest {
 //                .andExpect();
 
     }
-
 
 
 }

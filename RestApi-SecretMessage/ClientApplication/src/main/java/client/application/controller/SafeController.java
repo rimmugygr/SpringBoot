@@ -28,48 +28,46 @@ public class SafeController {
     private static final String MESSAGE_ATTR_NAME = "message";
 
     @GetMapping("/safe")
-    public String safeGet(Model model, Authentication authentication){
+    public String safeGet(Model model, Authentication authentication) {
         String userName = authentication.getName();
         String roles = authentication.getAuthorities()
                 .stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
         model.addAttribute(KEY_FROM_MODEL_ATTR_NAME, new KeyModel());
-        model.addAttribute("user",userName);
-        model.addAttribute("roles",roles);
+        model.addAttribute("user", userName);
+        model.addAttribute("roles", roles);
         return "safe";
     }
 
     @PostMapping("/safe")
-    public String safePost(@ModelAttribute(KEY_FROM_MODEL_ATTR_NAME) KeyModel keyModel,Model model){
+    public String safePost(@ModelAttribute(KEY_FROM_MODEL_ATTR_NAME) KeyModel keyModel, Model model) {
         boolean keyCorrect = isKeyCorrect(keyModel);
-        model.addAttribute(SAFE_OPENED_ATTR_NAME,keyCorrect);
+        model.addAttribute(SAFE_OPENED_ATTR_NAME, keyCorrect);
 
-        if (keyCorrect){
+        if (keyCorrect) {
             String message = fetchSecretMessage();
-            model.addAttribute(MESSAGE_ATTR_NAME,message);
+            model.addAttribute(MESSAGE_ATTR_NAME, message);
         } else {
             model.addAttribute(MESSAGE_ATTR_NAME, "");
         }
 
 
-
-
         return "safe";
     }
 
-    public boolean isKeyCorrect(KeyModel keyModel){
+    public boolean isKeyCorrect(KeyModel keyModel) {
         String userKey = keyModel.getKey();
         RestTemplate restTemplate = new RestTemplate();
         CheckKeyResult result = restTemplate.getForObject("http://localhost:8081/checkKey?key={key}",
-                CheckKeyResult.class, Collections.singletonMap("key",userKey));
+                CheckKeyResult.class, Collections.singletonMap("key", userKey));
         return result.isCorrect();
     }
 
-    public String fetchSecretMessage(){
+    public String fetchSecretMessage() {
         RestTemplate restTemplate = new RestTemplate();
-        List<ClientHttpRequestInterceptor> interceptors =  restTemplate.getInterceptors();
-        interceptors.add(new BasicAuthenticationInterceptor("admin","admin"));
+        List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
+        interceptors.add(new BasicAuthenticationInterceptor("admin", "admin"));
         SecretMessage message = restTemplate.getForObject(
                 "http://localhost:8083/getMessage", SecretMessage.class);
         return message.getText();

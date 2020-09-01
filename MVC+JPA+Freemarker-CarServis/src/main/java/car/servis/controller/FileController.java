@@ -25,12 +25,12 @@ public class FileController {
         response.setContentType("image/jpg");
         response.setContentLengthLong(file.length());
         response.setHeader("Content-Disposition", "attachment; fileName=abc.jpg");
-        FileCopyUtils.copy(inputStream,response.getOutputStream());
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
         logger.info("file stream");
     }
 
     @GetMapping("/upload")
-    public String showUploadForm(){
+    public String showUploadForm() {
         return "upload";
     }
 
@@ -42,12 +42,12 @@ public class FileController {
 
     @GetMapping("/error")
     public String getError() throws IOException {
-        throw new  IOException();
+        throw new IOException();
     }
 
     @ExceptionHandler(IOException.class)
     @ResponseBody
-    public String handleError(){
+    public String handleError() {
         logger.info("Input Output Error in Server");
         return "Error in Server";
     }

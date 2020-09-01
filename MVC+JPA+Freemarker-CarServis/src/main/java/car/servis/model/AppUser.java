@@ -15,7 +15,7 @@ import java.util.Collections;
  * Table login profile
  */
 @Entity
-public class AppUser  implements UserDetails {
+public class AppUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

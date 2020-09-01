@@ -15,10 +15,10 @@ public class TestController {
     }
 
     @GetMapping("/test")
-    public String test(){
-        String result="";
+    public String test() {
+        String result = "";
         for (AppUser appUser : userService.getAllUser()) {
-            result+= appUser.toString()+"</br>";
+            result += appUser.toString() + "</br>";
         }
         return result;
     }

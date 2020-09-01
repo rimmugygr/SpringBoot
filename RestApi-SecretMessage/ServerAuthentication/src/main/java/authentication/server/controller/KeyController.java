@@ -12,7 +12,7 @@ public class KeyController {
     private static final String SECRET_KEY = "123";
 
     @GetMapping("/checkKey")
-    public CheckKeyResult checkKey(@RequestParam(value = "key", defaultValue = "") String key){
+    public CheckKeyResult checkKey(@RequestParam(value = "key", defaultValue = "") String key) {
         boolean isKeyCorrect = SECRET_KEY.equals(key);
         return new CheckKeyResult(isKeyCorrect);
     }

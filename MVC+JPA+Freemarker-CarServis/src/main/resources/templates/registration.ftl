@@ -24,33 +24,33 @@
 <#--            <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>-->
 <#--        </form>-->
 <#--    </div>-->
-    <@spring.bind "user"/>
-    <#if user?? && noErrors??>
-        Your submitted data<br>
-        Name: ${user.username}<br>
-        Email: ${user.mail}<br>
-    <#else>
-        <form action="/registration" method="post">
-            Name:<br>
-            <@spring.formInput "user.username"/>
-            <@spring.showErrors "<br>"/>
-            <br><br>
-            Password:<br>
-            <@spring.formInput "user.password"/>
-            <@spring.showErrors "<br>"/>
-            <br><br>
-            Confirm Password:<br>
-            <@spring.formInput "user.confirmPassword"/>
-            <@spring.showErrors "<br>"/>
-            <br><br>
-            Email:<br>
-            <@spring.formInput "user.mail"/>
-            <@spring.showErrors "<br>"/>
-            <br><br>
-            <input type="submit" value="Submit">
-            <input type="hidden"  name="${_csrf.parameterName}"  value="${_csrf.token}"/>
-        </form>
-    </#if>
+<@spring.bind "user"/>
+<#if user?? && noErrors??>
+    Your submitted data<br>
+    Name: ${user.username}<br>
+    Email: ${user.mail}<br>
+<#else>
+    <form action="/registration" method="post">
+        Name:<br>
+        <@spring.formInput "user.username"/>
+        <@spring.showErrors "<br>"/>
+        <br><br>
+        Password:<br>
+        <@spring.formInput "user.password"/>
+        <@spring.showErrors "<br>"/>
+        <br><br>
+        Confirm Password:<br>
+        <@spring.formInput "user.confirmPassword"/>
+        <@spring.showErrors "<br>"/>
+        <br><br>
+        Email:<br>
+        <@spring.formInput "user.mail"/>
+        <@spring.showErrors "<br>"/>
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+</#if>
 
 
 </body>

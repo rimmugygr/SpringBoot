@@ -41,8 +41,8 @@ public class MessageController {
 //        }
         return "Hello user " + username + " with authorities " +
                 authorities.toString()
-                        .replace("[","")
-                        .replace("]","");
+                        .replace("[", "")
+                        .replace("]", "");
     }
 
 }

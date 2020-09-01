@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @WebListener
 public class SessionListener implements HttpSessionListener {
 
-    private static final Logger LOG= LoggerFactory.getLogger(SessionListener.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SessionListener.class);
 
     private final AtomicInteger counter = new AtomicInteger();
 
@@ -32,10 +32,10 @@ public class SessionListener implements HttpSessionListener {
         updateSessionCounter(se);
     }
 
-    private void updateSessionCounter(HttpSessionEvent httpSessionEvent){
+    private void updateSessionCounter(HttpSessionEvent httpSessionEvent) {
         //Let's set in the context
         httpSessionEvent.getSession().getServletContext()
                 .setAttribute("activeSession", counter.get());
-        LOG.info("Total active session are {} ",counter.get());
+        LOG.info("Total active session are {} ", counter.get());
     }
 }

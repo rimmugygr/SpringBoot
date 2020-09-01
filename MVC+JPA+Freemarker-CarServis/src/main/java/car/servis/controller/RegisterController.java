@@ -20,7 +20,7 @@ import java.util.UUID;
 
 @Controller
 public class RegisterController {
-    private Logger logger= LoggerFactory.getLogger(RegisterController.class);
+    private Logger logger = LoggerFactory.getLogger(RegisterController.class);
 
     private UserService userService;
     private RegistrationValidator validate;
@@ -31,14 +31,14 @@ public class RegisterController {
     }
 
     @GetMapping("/registration")
-    public String getRegister(Model model){
+    public String getRegister(Model model) {
         model.addAttribute("user", new AppUser());
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String setRegister(@ModelAttribute("user")AppUser appUser, BindingResult bindingResult, Model model){
-        validate.validate(appUser,bindingResult);
+    public String setRegister(@ModelAttribute("user") AppUser appUser, BindingResult bindingResult, Model model) {
+        validate.validate(appUser, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "registration";
@@ -54,9 +54,8 @@ public class RegisterController {
     }
 
 
-
     @GetMapping("/token")
-    public String userActivation(@RequestParam String value){
+    public String userActivation(@RequestParam String value) {
         userService.userActivation(value);
         return "/login";
     }

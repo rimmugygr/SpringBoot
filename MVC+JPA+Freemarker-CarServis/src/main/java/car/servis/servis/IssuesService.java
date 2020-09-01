@@ -8,6 +8,8 @@ import java.util.List;
 @Component
 public interface IssuesService {
     String getIssue();
-    List<Issue>  listIssues();
+
+    List<Issue> listIssues();
+
     void addIssue(IssueForm issueForm);
 }

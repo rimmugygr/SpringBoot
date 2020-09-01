@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "server.message")
 public class ServerMessageApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ServerMessageApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ServerMessageApplication.class, args);
+    }
 
 }

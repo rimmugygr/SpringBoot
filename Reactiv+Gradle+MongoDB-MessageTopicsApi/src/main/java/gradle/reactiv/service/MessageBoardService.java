@@ -31,7 +31,7 @@ public class MessageBoardService {
         messageRepository.findAll().forEach(
                 boardMessage -> {
                     if (!topics.containsKey(boardMessage.getTopic())) {
-                        topics.put(boardMessage.getTopic(), new Topic(boardMessage.getTopic() , List.of(boardMessage.getMessage())));
+                        topics.put(boardMessage.getTopic(), new Topic(boardMessage.getTopic(), List.of(boardMessage.getMessage())));
                     } else {
                         topics.get(boardMessage.getTopic()).addMessage(boardMessage.getMessage());
                     }
@@ -39,9 +39,9 @@ public class MessageBoardService {
         );
     }
 
-    public synchronized Topic getTopic(String name){
-        if (!this.topics.containsKey(name)){
-            this.topics.put(name,new Topic(name));
+    public synchronized Topic getTopic(String name) {
+        if (!this.topics.containsKey(name)) {
+            this.topics.put(name, new Topic(name));
         }
         return this.topics.get(name);
     }
