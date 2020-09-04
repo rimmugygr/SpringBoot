@@ -2,3 +2,7 @@ GET http://localhost:8080/employees
 Accept: application/json
 
 ###
+GET http://localhost:8080/employees/1
+Accept: application/json
+
+###

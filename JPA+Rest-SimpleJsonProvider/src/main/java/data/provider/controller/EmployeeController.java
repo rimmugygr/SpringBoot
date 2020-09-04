@@ -1,12 +1,9 @@
 package data.provider.controller;
 
 import data.provider.dto.EmployeeDto;
-import data.provider.model.Employee;
 import data.provider.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,8 +13,15 @@ import java.util.List;
 public class EmployeeController {
     private final EmployeeService employeeService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public List<EmployeeDto> getAllEmployee() {
         return employeeService.getAllEmployee();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("{id}")
+    public EmployeeDto getAllEmployee(@PathVariable Long id) {
+        return employeeService.getEmployeeById(id);
     }
 }
