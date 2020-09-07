@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/task")
+@RequestMapping("/tasks")
 public class TaskController {
     private final TaskService taskService;
 

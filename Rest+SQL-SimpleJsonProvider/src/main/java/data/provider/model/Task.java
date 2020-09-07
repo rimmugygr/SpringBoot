@@ -20,7 +20,7 @@ public class Task {
     private String description;
     private String status;
     private Long progress;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
 }
