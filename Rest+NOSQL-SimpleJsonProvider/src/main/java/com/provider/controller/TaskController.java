@@ -17,13 +17,13 @@ public class TaskController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
-    public Task getAllEmployee(@PathVariable String id) {
+    public Task getTaskById(@PathVariable String id) {
         return taskService.getTaskById(id);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("")
-    public List<Task> getAllEmployee() {
+    public List<Task> getAllTasks() {
         return taskService.getAllTask();
     }
 }

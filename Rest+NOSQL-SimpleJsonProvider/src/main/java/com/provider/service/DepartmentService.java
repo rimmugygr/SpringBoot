@@ -13,7 +13,11 @@ import java.util.List;
 public class DepartmentService {
     private final DepartmentRepository departmentRepo;
 
-    public List<Department> getAllDepartment() {
+    public List<Department> getAllDepartments() {
         return departmentRepo.findAll();
+    }
+
+    public Department getDepartmentByName(String name) {
+        return departmentRepo.findDepartmentByName(name).orElseThrow(RuntimeException::new);
     }
 }

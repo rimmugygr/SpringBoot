@@ -4,10 +4,7 @@ package com.provider.controller;
 import com.provider.model.Department;
 import com.provider.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +16,13 @@ public class DepartmentController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
-    public List<Department> getAllDepartment() {
-        return departmentService.getAllDepartment();
+    public List<Department> getAllDepartments() {
+        return departmentService.getAllDepartments();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/{name}")
+    public Department getDepartmentByName(@PathVariable String name) {
+        return departmentService.getDepartmentByName(name);
     }
 }
