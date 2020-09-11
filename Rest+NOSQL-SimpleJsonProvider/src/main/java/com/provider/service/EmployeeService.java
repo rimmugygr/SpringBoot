@@ -19,4 +19,8 @@ public class EmployeeService {
     public Employee getEmployeeById(String id) {
         return employeeRepo.findById(id).orElseThrow(RuntimeException::new);
     }
+
+    public Employee addEmployee(Employee employee) {
+        return employeeRepo.save(employee);
+    }
 }

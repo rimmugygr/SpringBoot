@@ -20,4 +20,8 @@ public class TaskService {
     public List<Task> getAllTask() {
         return taskRepo.findAll();
     }
+
+    public List<Task> addTasks(List<Task> tasks) {
+        return taskRepo.saveAll(tasks);
+    }
 }

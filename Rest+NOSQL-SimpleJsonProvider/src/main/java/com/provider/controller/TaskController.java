@@ -26,4 +26,10 @@ public class TaskController {
     public List<Task> getAllTasks() {
         return taskService.getAllTask();
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/list")
+    public List<Task> postTasks(@RequestBody List<Task> tasks) {
+        return taskService.addTasks(tasks);
+    }
 }

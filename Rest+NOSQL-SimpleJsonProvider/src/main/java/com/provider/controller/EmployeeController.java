@@ -24,4 +24,10 @@ public class EmployeeController {
     public Employee getAllEmployee(@PathVariable String id) {
         return employeeService.getEmployeeById(id);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping
+    public Employee getAllEmployee(@RequestBody Employee employee) {
+        return employeeService.addEmployee(employee);
+    }
 }
